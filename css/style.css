@@ -9,8 +9,25 @@ body {
   height: 540px;
   width: 630px;
   background-color: blue;
-  border: 10px solid cornflowerblue;
+  border: 10px solid navy;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+}
+
+.tile{
+  height: 70px;
+  width: 70px;
+  margin: 5px;
+  background-color: white;
+  border-radius: 50%;
+  border: 5px solid navy;
+}
+
+.redChip{
+  background-color: red;
+}
+
+.yellowChip{
+  background-color: yellow;
 }
