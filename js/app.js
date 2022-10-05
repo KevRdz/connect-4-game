@@ -4,6 +4,7 @@ let currentPlayer = playerRed
 
 let gameOver = false
 let board
+let currentColumns
 
 let rows = 6
 let columns = 7
@@ -16,6 +17,7 @@ init()
 
 function init(){
   board = []
+  currentColumns = [5, 5, 5, 5, 5, 5, 5]
 
   for (let r = 0; r < rows; r++){
     let row = []
@@ -25,14 +27,14 @@ function init(){
       let tile = document.createElement("div")
       tile.id = r.toString() + "-" + c.toString()
       tile.classList.add("tile")
-      tile.addEventListener("click", setPiece)
+      tile.addEventListener("click", setChip)
       document.getElementById("board").append(tile)
     }
     board.push(row)
   }
 }
 
-function setPiece(){
+function setChip(){
   if (gameOver){
     return
   }
@@ -40,8 +42,13 @@ function setPiece(){
   let r = parseInt(coords[0])
   let c = parseInt(coords[0])
 
+  r = currentColumns[c]
+  if (r < 0){
+    return
+  }
+
   board[r][c] = currentPlayer
-  let tile = this
+  let tile = document.getElementById(r.toString() + "-" + c.toString())
   if (currentPlayer == playerRed){
     tile.classList.add("red-chip")
     currentPlayer = playerYellow
