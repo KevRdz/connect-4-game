@@ -40,7 +40,7 @@ function setChip(){
   }
   let coords = this.id.split("-")
   let r = parseInt(coords[0])
-  let c = parseInt(coords[0])
+  let c = parseInt(coords[1])
 
   r = currentColumns[c]
   if (r < 0){
@@ -57,4 +57,7 @@ function setChip(){
     tile.classList.add("yellow-chip")
     currentPlayer= playerRed
   }
+
+  r -= 1;
+  currentColumns[c] = r;
 }
